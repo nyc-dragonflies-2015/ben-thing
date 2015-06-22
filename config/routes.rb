@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :questions
+  get 'questions/index'
+  get 'questions/new'
+  get 'questions/create'
+
   resources :answers
   resources :surveys
 
