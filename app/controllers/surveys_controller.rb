@@ -10,7 +10,12 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     if @survey.save
-      render text: 'aw yah'
+      if request.xhr?
+        @question = Question.new
+        render partial: 'questions/form'
+      else
+        render text: 'aw yah'
+      end
     else
       render text: 'die in a fire'
     end
